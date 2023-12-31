@@ -8,10 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ScrollBar extends JScrollBar{
     public ScrollBar() {
         setUI(new ModernScrollBarUI());

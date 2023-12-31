@@ -15,19 +15,20 @@ import net.miginfocom.swing.MigLayout;
 import service.Service;
 import swing.ScrollBar;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class MenuLeft extends javax.swing.JPanel {
 
     private List<ModelUserAccount> userAccount;
-    private ModelUserAccount selectedUser;
+    private static ModelUserAccount selectedUser;
     private ChatBox chatBox;
-    private int currentUserId;
+    private static int currentUserId;
 
-    public int getCurrentUserId() {
+    public static int getCurrentUserId() {
         return currentUserId;
+    }
+    
+    public static int getSelectedUserId() {
+        return selectedUser.getUserID();
     }
    
     public MenuLeft() {
@@ -142,8 +143,6 @@ public class MenuLeft extends javax.swing.JPanel {
     public void setSelectedUser(ModelUserAccount user) {
         this.selectedUser = user;
         
-        System.out.println("Selected User: " + user.getUserName());
-        System.out.println("Id người dùng menuLeft:"+ this.currentUserId);
         // Yêu cầu lịch sử chat giữa người dùng hiện tại và người được chọn
         Service.getInstance().requestChatHistory(currentUserId, selectedUser.getUserID());
 

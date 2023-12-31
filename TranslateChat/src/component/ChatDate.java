@@ -4,10 +4,7 @@
  */
 package component;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatDate extends javax.swing.JLayeredPane {
 
     /**

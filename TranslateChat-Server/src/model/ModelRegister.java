@@ -6,10 +6,7 @@ package model;
 
 
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ModelRegister {
 
     public String getUserName() {

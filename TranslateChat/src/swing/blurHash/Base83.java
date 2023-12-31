@@ -4,10 +4,7 @@
  */
 package swing.blurHash;
 
-/**
- *
- * @author TrongFlorida
- */
+
 class Base83 {
 
     private static final char[] CHARACTERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',

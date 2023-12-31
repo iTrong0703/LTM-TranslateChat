@@ -8,10 +8,7 @@ import connection.DatabaseConnection;
 import java.sql.SQLException;
 import service.Service;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Main extends javax.swing.JFrame {
 
     /**

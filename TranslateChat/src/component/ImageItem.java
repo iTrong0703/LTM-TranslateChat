@@ -9,10 +9,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import swing.blurHash.BlurHash;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ImageItem extends javax.swing.JLayeredPane {
 
     /**

@@ -4,10 +4,7 @@
  */
 package event;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventMenuRight {
 //    void onLanguageSelected(String sourceLang, String targetLang);
     

@@ -24,10 +24,7 @@ import service.Service;
 import swing.JIMSendTextPane;
 import swing.ScrollBar;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatBottom extends javax.swing.JPanel {
     
     private ModelUserAccount user;

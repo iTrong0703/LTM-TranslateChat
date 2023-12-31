@@ -7,10 +7,7 @@ package form;
 import model.ModelUserAccount;
 import net.miginfocom.swing.MigLayout;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Home extends javax.swing.JLayeredPane {
 
     private ChatBox chat; 

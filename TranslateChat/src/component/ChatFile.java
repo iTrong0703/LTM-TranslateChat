@@ -4,10 +4,7 @@
  */
 package component;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatFile extends javax.swing.JPanel {
 
     /**

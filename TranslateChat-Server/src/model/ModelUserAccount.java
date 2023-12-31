@@ -4,10 +4,7 @@
  */
 package model;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ModelUserAccount {
 
     public int getUserID() {

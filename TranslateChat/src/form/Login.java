@@ -17,10 +17,7 @@ import model.ModelUserAccount;
 import org.json.JSONException;
 import service.Service;
 import org.json.JSONObject;
-/**
- *
- * @author TrongFlorida
- */
+
 public class Login extends javax.swing.JPanel {
     private MenuLeft  menuLeft;
     private Home home;
@@ -107,7 +104,6 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         pic = new swing.PictureBox();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -115,29 +111,17 @@ public class Login extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/icon/login_image.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(66, 66, 66));
-        jLabel2.setText("Translate Chat Application");
-
-        pic.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/icon/login_image.jpg"))); // NOI18N
 
         javax.swing.GroupLayout picLayout = new javax.swing.GroupLayout(pic);
         pic.setLayout(picLayout);
         picLayout.setHorizontalGroup(
             picLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(picLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jLabel2)
-                .addContainerGap(484, Short.MAX_VALUE))
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         picLayout.setVerticalGroup(
             picLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, picLayout.createSequentialGroup()
-                .addContainerGap(569, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(0, 0, 0))
+            .addGap(0, 594, Short.MAX_VALUE)
         );
 
         jLabel1.setBackground(new java.awt.Color(32, 140, 215));
@@ -225,7 +209,6 @@ public class Login extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private swing.PictureBox pic;

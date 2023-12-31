@@ -19,10 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ProgressCircleUI extends BasicProgressBarUI {
     
     private final Progress pro;

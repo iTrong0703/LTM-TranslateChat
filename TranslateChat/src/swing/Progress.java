@@ -6,10 +6,7 @@ package swing;
 
 import javax.swing.JProgressBar;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Progress extends JProgressBar{
     
     private ProgressType progressType = ProgressType.NONE;

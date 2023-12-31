@@ -9,10 +9,7 @@ import event.PublicEvent;
 import model.ModelMessage;
 import model.ModelRegister;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class PRegister extends javax.swing.JPanel {
 
     /**

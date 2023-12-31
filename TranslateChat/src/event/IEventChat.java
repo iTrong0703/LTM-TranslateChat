@@ -8,14 +8,12 @@ import java.util.List;
 import model.ModelReceiveMessage;
 import model.ModelSendMessage;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventChat {
     public void sendMessage(ModelSendMessage data);
     public void receiveMessage(ModelReceiveMessage data);
     public void displayChatHistory(List<ModelReceiveMessage> chatHistory);
     public void translateChatHistory(String sourceLang, String targetLang);
     public void originalChatHistory();
+    public void defaultLanguage(String selectedSourceLanguage, String selectedTargetLanguage);
 }

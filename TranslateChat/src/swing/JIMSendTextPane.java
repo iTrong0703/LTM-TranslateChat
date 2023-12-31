@@ -4,10 +4,7 @@
  */
 package swing;
 
-/**
- *
- * @author TrongFlorida
- */
+
 import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics;

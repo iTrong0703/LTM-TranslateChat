@@ -7,10 +7,7 @@ package model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ModelReceiveMessage {
 
     public int getFromUserID() {

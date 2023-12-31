@@ -5,10 +5,7 @@
 package model;
 
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ModelSendMessage {
 
     public int getFromUserID() {

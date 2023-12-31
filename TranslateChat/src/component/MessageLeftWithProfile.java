@@ -9,10 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.Icon;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class MessageLeftWithProfile extends javax.swing.JLayeredPane {
 
     /**

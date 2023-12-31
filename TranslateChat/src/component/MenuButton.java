@@ -9,10 +9,7 @@ import java.awt.Graphics;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class MenuButton extends JButton{
 
     public Icon getIconNotSelected() {

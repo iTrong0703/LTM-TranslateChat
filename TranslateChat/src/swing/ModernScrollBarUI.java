@@ -15,10 +15,6 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
-/**
- *
- * @author TrongFlorida
- */
 
 // Custom scrollBar 
 public class ModernScrollBarUI extends BasicScrollBarUI{

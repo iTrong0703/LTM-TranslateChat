@@ -20,16 +20,16 @@ import model.ModelUserAccount;
 import net.miginfocom.swing.MigLayout;
 import service.Service;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatBox extends javax.swing.JPanel {
 
     private ChatTitle chatTitle;
     private ChatBody chatBody;
     private ChatBottom chatBottom;
     private List<ModelReceiveMessage> liChatHistory;
+    private List<ModelReceiveMessage> dataChat;
+    private String selectedSourceLanguage;
+    private String selectedTargetLanguage;
     
     public ChatBox() {
         initComponents();
@@ -45,12 +45,18 @@ public class ChatBox extends javax.swing.JPanel {
             @Override
             public void sendMessage(ModelSendMessage data) {
                 chatBody.addItemRight(data);
+                
             }
 
             @Override
             public void receiveMessage(ModelReceiveMessage data) {
-                if(chatTitle.getUser().getUserID() == data.getFromUserID()) {
-                    chatBody.addItemLeft(data);
+                liChatHistory.add(data);
+                try {
+                    chatBody.addItemLeft(data, selectedSourceLanguage, selectedTargetLanguage);
+                } catch (IOException ex) {
+                    Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (LangDetectException ex) {
+                    Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
@@ -62,6 +68,8 @@ public class ChatBox extends javax.swing.JPanel {
 
             @Override
             public void translateChatHistory(String sourceLang, String targetLang) {
+                selectedSourceLanguage  = sourceLang;
+                selectedTargetLanguage = targetLang;
                 System.out.println("ChatBox: "+ sourceLang + targetLang);
                 try {
                     updateTransChatHistoryList(sourceLang, targetLang);
@@ -75,6 +83,12 @@ public class ChatBox extends javax.swing.JPanel {
             @Override
             public void originalChatHistory() {
                 updateOriChatHistoryList();
+            }
+
+            @Override
+            public void defaultLanguage(String defaultSourceLanguage, String defaultTargetLanguage) {
+                selectedSourceLanguage  = defaultSourceLanguage;
+                selectedTargetLanguage = defaultTargetLanguage;
             }
 
            
@@ -99,6 +113,20 @@ public class ChatBox extends javax.swing.JPanel {
     
     public void updateUser(ModelUserAccount user) {
         chatTitle.updateUser(user);
+    }
+    
+    private void updateChatLeft(ModelReceiveMessage data) {
+        chatBody.clearChat();
+        ModelUserAccount currentUser = chatTitle.getUser();
+        if (currentUser == null) {
+            // Xử lý nếu chatTitle.getUser() trả về null
+            return;
+        }
+
+        if(chatTitle.getUser().getUserID() == data.getFromUserID()) {
+            chatBody.addItemLeft(data);
+        }
+        
     }
     
     
@@ -153,12 +181,13 @@ public class ChatBox extends javax.swing.JPanel {
             // Xử lý nếu chatTitle.getUser() trả về null
             return;
         }
+        
+        System.out.println("MenuLeft SelectedUserId: "+ MenuLeft.getCurrentUserId());
+        System.out.println("MenuLeft SelectedUserId: "+ MenuLeft.getSelectedUserId());
 
         for (ModelReceiveMessage message : liChatHistory) {
             System.out.println(".updateChatHistoryList(): " + message.getFromUserID());
             if (currentUser.getUserID() == message.getFromUserID()) {
-                
-                
                 chatBody.addItemLeft(message);
                 
             } else {

@@ -14,10 +14,7 @@ import java.awt.RenderingHints;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
-/**
- *
- * @author TrongFlorida
- */
+
 public class PictureBox extends JLayeredPane {
 
     public Icon getImage() {

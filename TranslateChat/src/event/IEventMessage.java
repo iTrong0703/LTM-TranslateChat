@@ -6,10 +6,7 @@ package event;
 
 import model.ModelMessage;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventMessage {
     public void callMessage(ModelMessage message);
 }

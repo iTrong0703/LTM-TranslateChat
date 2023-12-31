@@ -7,10 +7,7 @@ package form;
 import event.PublicEvent;
 import model.ModelLogin;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class PLogin extends javax.swing.JPanel {
 
     /**

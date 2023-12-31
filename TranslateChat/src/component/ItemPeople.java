@@ -10,10 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import model.ModelUserAccount;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ItemPeople extends javax.swing.JPanel {
 
     private boolean mouseOver;

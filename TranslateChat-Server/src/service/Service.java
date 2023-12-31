@@ -23,10 +23,7 @@ import model.ModelRegister;
 import model.ModelSendMessage;
 import model.ModelUserAccount;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Service {
     private static Service instance;
     private SocketIOServer server;
@@ -66,7 +63,7 @@ public class Service {
                 ModelMessage message = serviceUser.register(t);
                 ar.sendAckData(message.isAction(), message.getMessage(), message.getData());
                 if(message.isAction()) {
-                    textArea.append("User has Register: "+ t.getUserName() + ", Pass: "+ t.getPassword() +"\n");
+                    textArea.append("User has Register: "+ t.getUserName() + ", Pass: ********" +"\n");
                     server.getBroadcastOperations().sendEvent("list_user", (ModelUserAccount) message.getData());
                     addClient(sioc, (ModelUserAccount) message.getData());
                 } 
@@ -113,7 +110,6 @@ public class Service {
         server.addEventListener("get_chat_history", int[].class, new DataListener<int[]>() {
             @Override
             public void onData(SocketIOClient sioc, int[] data, AckRequest ar) throws Exception {
-                System.out.println("Received get_chat_history event from client");
                 sendChatHistoryToClient(data[0], data[1], sioc);
             }
         });
@@ -181,7 +177,6 @@ public class Service {
     private void sendChatHistoryToClient(int fromUserID, int toUserID, SocketIOClient requester) {
         List<ModelReceiveMessage> chatHistory = serviceUser.getChatHistory(fromUserID, toUserID);
         requester.sendEvent("get_chat_history", chatHistory.toArray());
-        System.out.println("Sent chat_history to the requesting client");
     }
     
 }

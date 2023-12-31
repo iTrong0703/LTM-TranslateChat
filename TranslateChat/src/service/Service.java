@@ -16,10 +16,7 @@ import model.ModelReceiveMessage;
 import model.ModelSendMessage;
 import model.ModelUserAccount;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Service {
     private static Service instance;
     private Socket client;
@@ -95,8 +92,6 @@ public class Service {
                     // Hiển thị lịch sử chat
                     PublicEvent.getInstance().getEventChat().displayChatHistory(chatHistory);
 
-                    // Thêm dòng log để kiểm tra
-                    System.out.println("Received get_chat_history event from server. Displaying chat history...");
                 }
             });
 
@@ -139,11 +134,9 @@ public class Service {
     }
     public void requestChatHistory(int fromUserID, int toUserID) {
         if (client != null) {
-            System.out.println("Sending get_chat_history event from client");
             client.emit("get_chat_history", new int[]{fromUserID, toUserID});
 
 
-            System.out.println("Requesting chat history for fromUserID=" + fromUserID + ", toUserID=" + toUserID);
         }
     }
 

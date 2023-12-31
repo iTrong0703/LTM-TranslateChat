@@ -7,10 +7,7 @@ package component;
 import java.awt.Color;
 import javax.swing.Icon;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class MessageRight extends javax.swing.JLayeredPane {
 
     /**

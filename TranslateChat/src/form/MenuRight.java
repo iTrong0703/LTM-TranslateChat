@@ -9,13 +9,10 @@ import event.IEventMenuRight;
 import event.PublicEvent;
 import javax.swing.DefaultComboBoxModel;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class MenuRight extends javax.swing.JPanel {
     String[] languages = {
-            "Phát hiện ngôn ngữ", "Afrikaans", "Arabic", "Bulgarian", "Bengali", "Czech", "Danish", "German", "Greek",
+            "None", "Phát hiện ngôn ngữ", "Afrikaans", "Arabic", "Bulgarian", "Bengali", "Czech", "Danish", "German", "Greek",
             "English", "Spanish", "Estonian", "Persian", "Finnish", "French", "Gujarati", "Hebrew",
             "Hindi", "Croatian", "Hungarian", "Indonesian", "Italian", "Japanese", "Kannada", "Korean",
             "Lithuanian", "Latvian", "Macedonian", "Malayalam", "Marathi", "Nepali", "Dutch", "Norwegian",
@@ -24,9 +21,9 @@ public class MenuRight extends javax.swing.JPanel {
             "Ukrainian", "Urdu", "Vietnamese", "Chinese (Simplified)", "Chinese (Traditional)"
         };
 
-        // Mảng chứa mã code tương ứng
-        String[] languagesCode = {
-            "auto", "af", "ar", "bg", "bn", "cs", "da", "de", "el",
+    // Mảng chứa mã code tương ứng
+    String[] languagesCode = {
+            "none", "auto", "af", "ar", "bg", "bn", "cs", "da", "de", "el",
             "en", "es", "et", "fa", "fi", "fr", "gu", "he",
             "hi", "hr", "hu", "id", "it", "ja", "kn", "ko",
             "lt", "lv", "mk", "ml", "mr", "ne", "nl", "no",
@@ -41,6 +38,7 @@ public class MenuRight extends javax.swing.JPanel {
     public MenuRight() {
         initComponents();
         initLanguageComboBoxes();
+        
     }
     
     private void initLanguageComboBoxes() {
@@ -59,6 +57,11 @@ public class MenuRight extends javax.swing.JPanel {
         // Thiết lập model cho JComboBox ngôn ngữ dịch
         targetLanguageComboBox.setModel(targetLanguageModel);
         
+        LanguageActionPerformed();
+        
+
+       
+        
         BtnSourceLanguage.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             BtnSourceLanguageActionPerformed(evt);
@@ -73,6 +76,14 @@ public class MenuRight extends javax.swing.JPanel {
        
     }
     
+    private void LanguageActionPerformed() {        
+        int sourceLanguageIndex = sourceLanguageComboBox.getSelectedIndex();
+        int targetLanguageIndex = targetLanguageComboBox.getSelectedIndex();
+        String selectedSourceLanguage = languagesCode[sourceLanguageIndex];;
+        String selectedTargetLanguage = languagesCode[targetLanguageIndex];
+        PublicEvent.getInstance().getEventChat().defaultLanguage(selectedSourceLanguage, selectedTargetLanguage);
+    }
+    
     //Quay lại ngôn ngữ gốc
     private void BtnSourceLanguageActionPerformed(java.awt.event.ActionEvent evt) {        
         // Gọi phương thức để dịch lại lịch sử chat trong ChatBox
@@ -85,8 +96,8 @@ public class MenuRight extends javax.swing.JPanel {
         int targetLanguageIndex = targetLanguageComboBox.getSelectedIndex();
         String selectedSourceLanguage = languagesCode[sourceLanguageIndex];
         String selectedTargetLanguage = languagesCode[targetLanguageIndex];
-        System.out.println("form.MenuRight.BtnTargetLanguageActionPerformed(): "+ selectedSourceLanguage + selectedTargetLanguage);
         // Gọi phương thức để dịch lại lịch sử chat trong ChatBox
+        PublicEvent.getInstance().getEventChat().defaultLanguage(selectedSourceLanguage, selectedTargetLanguage);
         PublicEvent.getInstance().getEventChat().translateChatHistory(selectedSourceLanguage, selectedTargetLanguage);
     }
 

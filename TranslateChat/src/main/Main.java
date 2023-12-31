@@ -17,10 +17,7 @@ import model.ModelUserAccount;
 import service.Service;
 import swing.ComponentResizer;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Main extends javax.swing.JFrame {
 
     /**
@@ -33,7 +30,7 @@ public class Main extends javax.swing.JFrame {
 
     private void init() {
         //set bieu tuong ben duoi thanh taskbar
-        setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/icon/icon.jpg")).getImage());
         ComponentResizer com = new ComponentResizer();
         com.registerComponent(this);
         com.setMinimumSize(new Dimension(900, 500));

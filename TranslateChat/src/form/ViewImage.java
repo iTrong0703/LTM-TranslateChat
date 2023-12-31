@@ -11,10 +11,7 @@ import javax.swing.Icon;
 import java.awt.Graphics2D;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ViewImage extends javax.swing.JComponent {
 
     /**

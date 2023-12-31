@@ -7,10 +7,7 @@ package component;
 import java.awt.Color;
 import model.ModelUserAccount;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatTitle extends javax.swing.JPanel {
 
 

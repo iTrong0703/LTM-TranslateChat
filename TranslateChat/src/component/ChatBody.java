@@ -23,10 +23,7 @@ import model.ModelSendMessage;
 import net.miginfocom.swing.MigLayout;
 import swing.ScrollBar;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatBody extends javax.swing.JPanel {
 
     /**
@@ -83,6 +80,8 @@ public class ChatBody extends javax.swing.JPanel {
         if(sourceLang == "auto") {
             item.setMessageLeftText(translate(detectLanguage(data.getText()), targetLang, data.getText()));
             System.out.println("Tự động phát hiện: "+ detectLanguage(data.getText()));
+        } else if (sourceLang == "none" || targetLang == "none"){
+            item.setMessageLeftText(data.getText());
         } else {
             item.setMessageLeftText(translate(sourceLang, targetLang, data.getText()));
         }

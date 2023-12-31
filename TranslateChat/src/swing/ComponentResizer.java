@@ -16,10 +16,7 @@ import java.util.Map;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ComponentResizer extends MouseAdapter{
     private final static Dimension MINIMUM_SIZE = new Dimension(10, 10);
 	private final static Dimension MAXIMUM_SIZE =

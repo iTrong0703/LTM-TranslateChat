@@ -6,10 +6,7 @@ package event;
 
 import javax.swing.Icon;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventImageView {
     public void viewImage(Icon image);
     public void saveImage(Icon image);

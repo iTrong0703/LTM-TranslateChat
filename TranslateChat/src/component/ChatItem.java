@@ -17,10 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.border.EmptyBorder;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ChatItem extends javax.swing.JLayeredPane {
 
     private JLabel label;

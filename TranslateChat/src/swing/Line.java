@@ -7,10 +7,7 @@ package swing;
 import java.awt.Graphics;
 import javax.swing.JLabel;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class Line extends JLabel {
 
     @Override

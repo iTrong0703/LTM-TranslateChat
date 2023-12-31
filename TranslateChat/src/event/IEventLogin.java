@@ -8,10 +8,7 @@ import model.ModelLogin;
 import model.ModelMessage;
 import model.ModelRegister;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventLogin {
     public void login(ModelLogin data);
     public void register(ModelRegister data, IEventMessage message);

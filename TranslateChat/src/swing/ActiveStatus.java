@@ -11,10 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public class ActiveStatus extends Component {
     public boolean isActive() {
         return active;

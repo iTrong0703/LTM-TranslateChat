@@ -7,10 +7,7 @@ package event;
 import java.util.List;
 import model.ModelUserAccount;
 
-/**
- *
- * @author TrongFlorida
- */
+
 public interface IEventMenuLeft {
     public void newUser(List<ModelUserAccount> users);
     public void userConnect(int userID);
