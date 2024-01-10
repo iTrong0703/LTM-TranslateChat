@@ -4,8 +4,6 @@
  */
 package model;
 
-
-
 public class ModelReceiveMessage {
 
     public int getFromUserID() {

@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package service;
 
 import connection.DatabaseConnection;
@@ -88,7 +91,7 @@ public class ServiceUser {
         p.setString(2, login.getPassword());
         ResultSet r = p.executeQuery();
         if (r.first()) {
-//            System.out.println("service.ServiceUser.login()");
+            System.out.println("service.ServiceUser.login()");
             int userID = r.getInt(1);
             String userName = r.getString(2);
             String gender = r.getString(3);
@@ -145,9 +148,9 @@ public class ServiceUser {
     public List<ModelReceiveMessage> getChatHistory(int fromUserID, int toUserID) {
         List<ModelReceiveMessage> chatHistory = new ArrayList<>();
         try {
-//            System.out.println("fromUserID: " + fromUserID);
-//            System.out.println("toUserID: " + toUserID);
-//            System.out.println("service.ServiceUser.getChatHistory()");
+            System.out.println("fromUserID: " + fromUserID);
+            System.out.println("toUserID: " + toUserID);
+            System.out.println("service.ServiceUser.getChatHistory()");
             PreparedStatement p = con.prepareStatement(SELECT_CHAT_HISTORY);
             p.setInt(1, fromUserID);
             p.setInt(2, toUserID);
@@ -159,9 +162,11 @@ public class ServiceUser {
                 int senderID = r.getInt("FromUserID");
                 int receiverID = r.getInt("ToUserID");
                 String messageText = r.getString("Message");
+                System.out.println("Message class ServiceUser: "+ messageText);
                 ModelReceiveMessage message = new ModelReceiveMessage(chatID, senderID, receiverID, messageText);
                 chatHistory.add(message);
             }
+            System.out.println("chatHistory: "+ chatHistory);
             r.close();
             p.close();
         } catch (SQLException e) {

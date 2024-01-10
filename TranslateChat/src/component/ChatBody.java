@@ -1,9 +1,10 @@
-
+    
 package component;
 
 import com.cybozu.labs.langdetect.Detector;
 import com.cybozu.labs.langdetect.DetectorFactory;
 import com.cybozu.labs.langdetect.LangDetectException;
+import com.cybozu.labs.langdetect.Language;
 import event.IEventMenuRight;
 import event.PublicEvent;
 import java.awt.Adjustable;
@@ -85,7 +86,6 @@ public class ChatBody extends javax.swing.JPanel {
         } else {
             item.setMessageLeftText(translate(sourceLang, targetLang, data.getText()));
         }
-        
         
         item.setMessageLeftTime();
         body.add(item, "wrap, w 100::80%"); // giới hạn kích thước box chứa tin nhắn là 80% box cha, nếu quá thì xuống dòng
@@ -176,7 +176,6 @@ public class ChatBody extends javax.swing.JPanel {
     }
 
     private static String translate(String langFrom, String langTo, String text) throws IOException {
-        // INSERT YOU URL HERE
         String urlStr = "https://script.google.com/macros/s/AKfycbx2y0sHJjVhbyH5CFxVi6OE0pdQ9VzJUAcpArgZlJHJaO3irGQR8KWnfmlx_qmW5giJrw/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +

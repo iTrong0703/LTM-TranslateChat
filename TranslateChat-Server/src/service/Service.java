@@ -23,7 +23,6 @@ import model.ModelRegister;
 import model.ModelSendMessage;
 import model.ModelUserAccount;
 
-
 public class Service {
     private static Service instance;
     private SocketIOServer server;
@@ -31,6 +30,8 @@ public class Service {
     private List<ModelClient> listClient;
     private JTextArea textArea;
     private final int PORT_NUMBER = 9999;
+//    private final int PORT_NUMBER = 6072;
+    private int cur_user = 0;
     
     public static Service getInstance(JTextArea textArea) {
         if(instance == null) {
@@ -52,7 +53,9 @@ public class Service {
         server.addConnectListener(new ConnectListener() {
             @Override
             public void onConnect(SocketIOClient sioc) {
-                textArea.append("One client connected\n");
+                cur_user++;
+                textArea.append(cur_user + " client connected\n");
+                
             }
             
         });
@@ -63,7 +66,7 @@ public class Service {
                 ModelMessage message = serviceUser.register(t);
                 ar.sendAckData(message.isAction(), message.getMessage(), message.getData());
                 if(message.isAction()) {
-                    textArea.append("User has Register: "+ t.getUserName() + ", Pass: ********" +"\n");
+                    textArea.append("User has Register: "+ t.getUserName() + ", Pass: ******* \n");
                     server.getBroadcastOperations().sendEvent("list_user", (ModelUserAccount) message.getData());
                     addClient(sioc, (ModelUserAccount) message.getData());
                 } 
@@ -79,6 +82,7 @@ public class Service {
                     addClient(sioc, login);
                     userConnect(login.getUserID());
                     
+                    textArea.append(login.getUserID() + " login\n");
                      // Gửi sự kiện mới "user_logged_in" với thông tin người dùng, bao gồm cả ID của người dùng
                     sioc.sendEvent("user_logged_in", login.getUserID());
                 } else {
@@ -110,6 +114,7 @@ public class Service {
         server.addEventListener("get_chat_history", int[].class, new DataListener<int[]>() {
             @Override
             public void onData(SocketIOClient sioc, int[] data, AckRequest ar) throws Exception {
+                System.out.println("Received get_chat_history event from client");
                 sendChatHistoryToClient(data[0], data[1], sioc);
             }
         });
@@ -125,6 +130,8 @@ public class Service {
                 if(userID != 0) {
                     //removed
                     userDisconnect(userID);
+                    textArea.append(userID + " disconnected\n");
+                    cur_user--;
                 }
             }
             
@@ -168,8 +175,6 @@ public class Service {
         return 0;
     }
     
-
-    
     public List<ModelClient> getListClient() {
         return listClient;
     }
@@ -177,6 +182,7 @@ public class Service {
     private void sendChatHistoryToClient(int fromUserID, int toUserID, SocketIOClient requester) {
         List<ModelReceiveMessage> chatHistory = serviceUser.getChatHistory(fromUserID, toUserID);
         requester.sendEvent("get_chat_history", chatHistory.toArray());
+        System.out.println("Sent chat_history to the requesting client");
     }
     
 }

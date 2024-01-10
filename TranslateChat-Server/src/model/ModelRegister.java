@@ -5,8 +5,6 @@
 package model;
 
 
-
-
 public class ModelRegister {
 
     public String getUserName() {

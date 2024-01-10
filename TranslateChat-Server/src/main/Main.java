@@ -6,8 +6,8 @@ package main;
 
 import connection.DatabaseConnection;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import service.Service;
-
 
 public class Main extends javax.swing.JFrame {
 
@@ -31,6 +31,7 @@ public class Main extends javax.swing.JFrame {
         txt = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Translate Chat Server");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -102,6 +103,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                JFrame frame = new JFrame();
                 new Main().setVisible(true);
             }
         });

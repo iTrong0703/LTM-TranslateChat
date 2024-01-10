@@ -5,8 +5,6 @@
 package model;
 
 import com.corundumstudio.socketio.SocketIOClient;
-
-
 public class ModelClient {
 
     public SocketIOClient getClient() {

@@ -4,7 +4,6 @@
  */
 package model;
 
-
 public class ModelUserAccount {
 
     public int getUserID() {
